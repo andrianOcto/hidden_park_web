@@ -1,11 +1,11 @@
-<?php readfile("head.php"); ?>
+@include("template/head")
 <legend>
     <ol class="breadcrumb">
         <li style="color:black">Park list</li>
     </ol>
 </legend>
 &nbsp;
-<a href="add-park.php"><button class="btn btn-success">Add park +</button></a>
+<a href="park/edit"><button class="btn btn-success">Add park +</button></a>
 <br><br>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -22,8 +22,8 @@
             <td><img class="img-rounded" style="width:150px" src="images/sample.png"></td>
             <td>Pasuruhan Lor 294</td>
             <td class="text-center">
-                <a href="view-park.php"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="add-park.php"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
+                <a href="park/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
+                <a href="park/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
                 <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
             </td>
         </tr>
@@ -33,11 +33,11 @@
             <td><img class="img-rounded" style="width:150px" src="images/sample.png"></td>
             <td>Pasuruhan Lor 294</td>
             <td class="text-center">
-                <a href="view-park.php"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="add-park.php"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
+                <a href="park/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
+                <a href="park/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
                 <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
             </td>
         </tr>
     </table>
 </div>
-<?php readfile("foot.php"); ?>
+@include("template/foot")

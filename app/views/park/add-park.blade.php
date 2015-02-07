@@ -1,4 +1,4 @@
-<?php readfile("head.php"); ?>
+@include("template/head")
 <legend><a<h3>Add park</h3></legend>
 &nbsp;
 <form class="form-horizontal" role="form">
@@ -60,4 +60,4 @@
         </div>
     </div>
 </form>
-<?php readfile("foot.php");
+@include("template/foot")

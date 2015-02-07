@@ -1,7 +1,7 @@
-<?php readfile("head.php"); ?>
+@include("template/head")
 <legend>
     <ol class="breadcrumb">
-        <li style="color:black"><a href="park.php">Park list</a></li>
+        <li style="color:black"><a href="../park">Park list</a></li>
         <li style="color:black">view park</li>
     </ol>
 </legend>
@@ -16,4 +16,4 @@
 <p>Taman yang penuh dengan kenangan dimasa-masa gue SMP :)</p>
 <br><br>
 <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> edit</button>
-<?php readfile("foot.php"); ?>
+@include("template/foot")

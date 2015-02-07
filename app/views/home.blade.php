@@ -42,9 +42,9 @@
             <div class="col-sm-3 col-md-3">
                 <center><img src="images/logo-hiddenpark.png" style="width:170px; padding-top:20px; padding-bottom:30px;"></center>
                 <ul class="nav nav-pills nav-stacked" style="padding-left:20px">
-                    <li style="border-right: 4px solid #428bca"><a href="index.html"><p align="center" style="color:black"><b>Dashboard</b></p></a></li>
-                    <li style="border-right: 4px solid #5cb85c"><a href="park.php"><p align="center" style="color:black"><b>Park</b></p></a></li>
-                    <li style="border-right: 4px solid #f0ad4e"><a href="users.php"><p align="center" style="color:black"><b>Users</b></p></a></li>
+                    <li style="border-right: 4px solid #428bca"><a href="/home"><p align="center" style="color:black"><b>Dashboard</b></p></a></li>
+                    <li style="border-right: 4px solid #5cb85c"><a href="/park"><p align="center" style="color:black"><b>Park</b></p></a></li>
+                    <li style="border-right: 4px solid #f0ad4e"><a href="/user"><p align="center" style="color:black"><b>Users</b></p></a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-md-9" style="margin-top:20px">

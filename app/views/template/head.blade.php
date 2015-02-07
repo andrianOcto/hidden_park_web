@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="images/logo-hiddenpark.png">
+    <link rel="shortcut icon" href="{{ URL::asset('images/logo-hiddenpark.png') }}">
 
     <title>Hidden Park Administrator</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
           
   </head>
 
@@ -28,9 +28,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="images/sample.png"></li>
+            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="{{ URL::asset('images/sample.png') }}"></li>
             <li><a href="view-user.php" style="color:black">Deny Salvana E</a></li>
-            <li><a href="login.html" style="color:black">logout</a></li>
+            <li><a href="/logout" style="color:black">logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -39,11 +39,11 @@
     <div class="container-fluid">
         <div class="row" style="margin-top:50px">
             <div class="col-sm-3 col-md-3">
-                <center><img src="images/logo-hiddenpark.png" style="width:170px; padding-top:20px; padding-bottom:30px;"></center>
+                <center><img src="{{ URL::asset('images/logo-hiddenpark.png') }}" style="width:170px; padding-top:20px; padding-bottom:30px;"></center>
                 <ul class="nav nav-pills nav-stacked" style="padding-left:20px">
-                    <li style="border-right: 4px solid #428bca"><a href="index.html"><p align="center" style="color:black"><b>Dashboard</b></p></a></li>
-                    <li style="border-right: 4px solid #5cb85c"><a href="park.php"><p align="center" style="color:black"><b>Park</b></p></a></li>
-                    <li style="border-right: 4px solid #f0ad4e"><a href="users.php"><p align="center" style="color:black"><b>Users</b></p></a></li>
+                    <li style="border-right: 4px solid #428bca"><a href="/home"><p align="center" style="color:black"><b>Dashboard</b></p></a></li>
+                    <li style="border-right: 4px solid #5cb85c"><a href="/park"><p align="center" style="color:black"><b>Park</b></p></a></li>
+                    <li style="border-right: 4px solid #f0ad4e"><a href="/user"><p align="center" style="color:black"><b>Users</b></p></a></li>
                 </ul>
             </div>
             <div class="col-sm-9 col-md-9" style="margin-top:20px">

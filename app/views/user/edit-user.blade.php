@@ -1,8 +1,8 @@
-<?php readfile("head.php"); ?>
+@include("template/head")
 <div class="row">
     <div class="col-sm-9 col-md-9">
         <center>
-            <img src="images/sample.png" class="img-thumbnail" style="height:200px"><br><br>
+            <img src="{{ URL::asset('images/sample.png') }}" class="img-thumbnail" style="height:200px"><br><br>
             <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
         &nbsp;
@@ -53,4 +53,4 @@
         </form>
     </div>
 </div>
-<?php readfile("foot.php"); ?>
+@include("template/foot")
