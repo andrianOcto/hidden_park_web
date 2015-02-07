@@ -35,13 +35,9 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if (!(Session::has('hidden_user')))
 	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		return Redirect::guest('login');
+		return Redirect::guest('/');
 	}
 });
 
@@ -64,7 +60,11 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Session::has('hidden_user'))
+	{
+		return Redirect::to('/home');
+        
+	}
 });
 
 /*

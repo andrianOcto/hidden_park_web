@@ -1,0 +1,52 @@
+var angular = angular;
+var console = console;
+
+var loginApp    = angular.module('loginApp', []);
+
+loginApp.controller('loginController',['$scope','$http',function($scope,$http)
+{	
+	$scope.isError	=false;
+	$scope.message 	="";
+	$scope.loading	=false;
+
+	$scope.submitLogin=function()
+	{
+		$scope.loading	=true;
+		//request get ke API
+		$http({
+			method	: 'GET',
+			url		: 'api/login',
+			params	: {
+				username	: $scope.username,
+				password	: $scope.password
+			}
+		}).success(function (data){
+
+			$scope.loading	= false;
+			$scope.isError	= true;
+			if(data.response === "OK" && data.status_code == 200 && data.message === "Login success.")
+			{
+				$http({
+					method	: 'POST',
+					url		: 'setSession',
+					params	: {
+						username	: $scope.username
+					}
+				}).success(function(data){
+					if(data.response === "OK" && data.status_code == 200 && data.message === "success set session")
+					{
+						window.location.href = '/home';
+					}
+				}).error(function(errMessage){
+
+				})
+			}
+			
+			$scope.message 	= data.message;
+		}).error(function(errMessage){
+			$scope.loading	= true;
+			$scope.isError	= true;
+			$scope.message 	= errMessage;
+		})
+	}
+}]);
