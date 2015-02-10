@@ -8,10 +8,11 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="fonts/favicon.ico">
     <title>Starter Template for Bootstrap</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/lib/angular.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+        <script src="js/lib/angular.min.js"></script>
     <script src="js/page/login.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body ng-app="loginApp">
@@ -31,14 +32,13 @@
                         <img ng-hide="!loading" height="72" width="72" src="images/loading.gif" class="img-circle">
                         <br><br>
                         <a href="#">forgot password</a>
-                        <p ng-hide="!isError" class="text-danger">@{{message}}</p>
+                        <p ng-hide="!isError" class="text-danger"  ng-init="message='sssss'">@{{message}}</p>
                     </center>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>

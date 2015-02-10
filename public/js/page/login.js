@@ -22,10 +22,10 @@ loginApp.controller('loginController',['$scope','$http',function($scope,$http)
 			}
 		}).success(function (data){
 
-			$scope.loading	= false;
-			$scope.isError	= true;
 			if(data.response === "OK" && data.status_code == 200 && data.message === "Login success.")
 			{
+
+				data.message="";
 				$http({
 					method	: 'POST',
 					url		: 'setSession',
@@ -36,6 +36,7 @@ loginApp.controller('loginController',['$scope','$http',function($scope,$http)
 					if(data.response === "OK" && data.status_code == 200 && data.message === "success set session")
 					{
 						window.location.href = '/home';
+
 					}
 				}).error(function(errMessage){
 
@@ -44,6 +45,7 @@ loginApp.controller('loginController',['$scope','$http',function($scope,$http)
 			
 			$scope.message 	= data.message;
 		}).error(function(errMessage){
+			console.log("masuk");
 			$scope.loading	= true;
 			$scope.isError	= true;
 			$scope.message 	= errMessage;
