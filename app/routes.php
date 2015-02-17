@@ -28,7 +28,7 @@ Route::group(array('before' => 'auth'), function() {
 	{
 		return View::make('home');
 	});
-	Route::get('/user', function()
+	Route::get('/useres', function()
 	{
 		return View::make('user/home');
 	});

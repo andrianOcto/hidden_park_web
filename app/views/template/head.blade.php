@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="{{ URL::asset('images/sample.png') }}"></li>
-            <li><a href="view-user.php" style="color:black">Deny Salvana E</a></li>
+            <li><a href="view-user.php" style="color:black">Valentino</a></li>
             <li><a href="/logout" style="color:black">logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
