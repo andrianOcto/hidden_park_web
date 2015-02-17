@@ -34,7 +34,7 @@ Route::group(array('before' => 'auth'), function() {
 	});
 	Route::get('/park', function()
 	{
-		return View::make('park/home');
+		return View::make('park/home/test');
 	});
 
 	//user route
