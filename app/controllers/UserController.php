@@ -20,4 +20,16 @@ class UserController extends BaseController {
 		return Redirect::to('home');
 	}
 
+	public function upload()
+	{
+
+		$input            = Input::all();
+		$username		  = (isset($input['username']))         ? $input['username']                :null;
+		$foto             = Input::file('file') ;    
+		$destinationPath  = public_path().'/files/photos';
+                $extension        = $foto->getClientOriginalExtension();
+                $filename         = time()."_".str_random(12).".".$extension;
+                
+                $foto->move($destinationPath, $filename);
+	}
 }

@@ -13,7 +13,7 @@
 Route::controller('api','ApiController');
 Route::post('/', array('uses' => 'UserController@doLogin'));
 Route::post('setSession', array('uses' => 'AuthController@postSetsession'));
-
+Route::post('user/upload', array('uses' => 'UserController@upload'));
 Route::group(array('before' => 'guest'), function() {
 	Route::get('/', function()
 	{

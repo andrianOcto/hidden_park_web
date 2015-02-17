@@ -1,14 +1,15 @@
 @include("template/head")
 <div class="row">
     <div class="col-sm-9 col-md-9">
-        
-        <form class="form-horizontal" role="form">
-        <center>
+        <center ng-app="fileUpload" ng-controller="MyCtrl">
+            <div ng-if="imageShow">
+            <img  class="thumb">
+            </div>
             <img src="{{ URL::asset('images/sample.png') }}" class="img-thumbnail" style="height:200px"><br><br>
-            <input type="file"/>
-            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
+            <button type="button" class="btn btn-primary" ng-file-select ng-file-change="upload($files)"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
         &nbsp;
+        <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="nama-user" class="col-sm-3 col-md-3 control-label">Nama Lengkap :</label>
                 <div class="col-sm-9 col-md-9">
