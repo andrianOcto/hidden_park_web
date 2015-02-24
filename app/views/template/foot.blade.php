@@ -15,5 +15,6 @@
 	<script src="{{ URL::asset('js/angular-file-upload.min.js') }}"></script> 
 	
 	<script src="{{ URL::asset('js/page/userSubmit.js') }}"></script> 
+    <script src="{{ URL::asset('js/page/data_post.js') }}"></script> 
 </body>
 </html>
