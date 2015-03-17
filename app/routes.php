@@ -12,12 +12,6 @@
 */
 Route::controller('api','ApiController');
 Route::post('/', array('uses' => 'UserController@doLogin'));
-
-// submit user's data route
-Route::post('/submit', array('uses' => 'ApiController@postUserData'));
-// submit park's data route
-Route::post('/submitPark', array('uses' => 'ApiController@postParkData'));
-
 Route::post('setSession', array('uses' => 'AuthController@postSetsession'));
 Route::post('user/upload', array('uses' => 'UserController@upload'));
 Route::group(array('before' => 'guest'), function() {
@@ -26,7 +20,6 @@ Route::group(array('before' => 'guest'), function() {
 		return View::make('login');
 	});
 });
-Route::get('/submit','ApiController@postUserData');
 
 Route::group(array('before' => 'auth'), function() {
 
@@ -44,10 +37,19 @@ Route::group(array('before' => 'auth'), function() {
 	// resource route park
 	Route::resource('park', 'ParkController');
 
+	// submit user's data route
+	Route::post('/submit', array('uses' => 'ApiController@postUserData'));
+	// submit park's data route
+	Route::post('/submitPark', array('uses' => 'ApiController@postParkData'));
 	// user delete route
 	Route::get('user/{id}/destroy',['as'=>'user.delete','uses'=>'UserController@destroy']);
 	// park delete route
 	Route::get('park/{id}/destroy',['as'=>'park.delete','uses'=>'ParkController@destroy']);
+});
+
+App::missing(function($exception)
+{
+        return View::make('login');
 });
 
 
