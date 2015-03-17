@@ -15,9 +15,15 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="koordinat" class="col-sm-2 col-md-2 control-label">Koordinat map:</label>
+        <label for="latitude" class="col-sm-2 col-md-2 control-label">Latitude:</label>
         <div class="col-sm-9 col-md-9">
-            <input ng-model="koordinat" type="text" class="form-control" id="koordinat-taman" required>
+            <input ng-model="latitude" type="text" class="form-control" id="latitude" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="longitude" class="col-sm-2 col-md-2 control-label">Longitude:</label>
+        <div class="col-sm-9 col-md-9">
+            <input ng-model="longitude" type="text" class="form-control" id="longitude" required>
         </div>
     </div>
     <div class="form-group">

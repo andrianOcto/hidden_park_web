@@ -9,48 +9,49 @@
             <button type="button" class="btn btn-primary" ng-file-select ng-file-change="upload($files)"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
  -->        &nbsp;
-        <form ng-app="form_input" ng-controller="submitController" ng-submit="submitData()" class="form-horizontal" role="form">
+        <form ng-app="updateUser" ng-controller="updateUserController" ng-submit="updateData()" ng-init="iduser='{{ $admin->iduser }}';nama='{{ $admin->nama_lengkap }}';username='{{ $admin->username }}';password='{{ $admin->password }}';contact='{{ $admin->contact }}';bio='{{ $admin->bio }}';email='{{ $admin->email }}'" class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="nama-user" class="col-sm-3 col-md-3 control-label">Nama Lengkap :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input ng-model="nama" type="text" required class="form-control" id="nama" name="nama" value="{{ $admin->nama_lengkap }}">
+                    <input ng-model="iduser" type="hidden" required class="form-control" id="iduser">
+                    <input ng-model="nama" type="text" required class="form-control" id="nama">
                 </div>
             </div>
             <div class="form-group">
                 <label for="username" class="col-sm-3 col-md-3 control-label">Username :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input ng-model="username" type="text" required class="form-control" id="username" value="{{ $admin->username }}">
+                    <input ng-model="username" type="text" required class="form-control" id="username">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 col-md-3 control-label">Password :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input ng-model="password" type="password" required class="form-control" id="password" value="{{ $admin->password }}">
+                    <input ng-model="password" type="password" required class="form-control" id="password">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-3 col-md-3 control-label">Email :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input ng-model="email" type="email" required class="form-control" id="email" value="{{ $admin->email }}">
+                    <input ng-model="email" type="email" required class="form-control" id="email">
                 </div>
             </div>
             <div class="form-group">
                 <label for="kontak" class="col-sm-3 col-md-3 control-label">Contact :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input ng-model="contact" type="text" required class="form-control" id="kontak" value="{{ $admin->contact }}">
+                    <input ng-model="contact" type="text" required class="form-control" id="kontak">
                 </div>
             </div>
             <div class="form-group">
                 <label for="bio" class="col-sm-3 col-md-3 control-label">Bio :</label>
                 <div class="col-sm-9 col-md-9">
-                    <textarea ng-model="bio" rows="4" id="bio" class="form-control">{{ $admin->bio }}</textarea>
+                    <textarea ng-model="bio" rows="4" id="bio" class="form-control"></textarea>
                 </div>
             </div>
             &nbsp;
             <div class="form-group">
                 
                 <div class="col-sm-2 col-md-2 col-md-offset-3">
-                    <button ng-hide="loading" type="submit" class="btn btn-primary">login</button>
+                    <button ng-hide="loading" type="submit" class="btn btn-primary">Submit</button>
                         <img ng-hide="!loading" height="72" width="72" src="{{ URL::asset('images/loading.gif') }}" class="img-circle">
                         <br><br>
                         <!-- <a href="#">forgot password</a> -->

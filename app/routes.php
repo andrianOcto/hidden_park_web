@@ -38,9 +38,13 @@ Route::group(array('before' => 'auth'), function() {
 	Route::resource('park', 'ParkController');
 
 	// submit user's data route
-	Route::post('/submit', array('uses' => 'ApiController@postUserData'));
+	Route::post('/submit', array('uses' => 'UserController@store'));
+	// update user's data route
+	Route::post('/updateUser/{iduser}', array('uses' => 'UserController@update'));
 	// submit park's data route
-	Route::post('/submitPark', array('uses' => 'ApiController@postParkData'));
+	Route::post('/submitPark', array('uses' => 'ParkController@store'));
+	// update park's data route
+	Route::post('/updatePark/{idpark}', array('uses' => 'ParkController@update'));
 	// user delete route
 	Route::get('user/{id}/destroy',['as'=>'user.delete','uses'=>'UserController@destroy']);
 	// park delete route
@@ -49,7 +53,7 @@ Route::group(array('before' => 'auth'), function() {
 
 App::missing(function($exception)
 {
-        return View::make('login');
+    return View::make('login');
 });
 
 

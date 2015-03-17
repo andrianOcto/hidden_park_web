@@ -50,7 +50,7 @@
             <div class="form-group">
                 
                 <div class="col-sm-2 col-md-2 col-md-offset-3">
-                    <button ng-hide="loading" type="submit" class="btn btn-primary">login</button>
+                    <button ng-hide="loading" type="submit" class="btn btn-primary">Submit</button>
                         <img ng-hide="!loading" height="72" width="72" src="{{ URL::asset('images/loading.gif') }}" class="img-circle">
                         <br><br>
                         <!-- <a href="#">forgot password</a> -->

@@ -1,29 +1,36 @@
 @include("template/head")
 <legend><a<h3>Add park</h3></legend>
 &nbsp;
-<form ng-app="formPark" ng-controller="ParkController" ng-submit="submitPark()" class="form-horizontal" role="form">
+<form ng-app="updatePark" ng-controller="updateParkController" ng-submit="updateParkData()" ng-init="idpark='{{ $park->idpark }}';nama_park='{{ $park->nama_park }}';alamat='{{ $park->alamat }}';latitude='{{ $park->latitude }}';longitude='{{ $park->longitude }}';deskripsi='{{ $park->deskripsi }}';" class="form-horizontal" role="form">
     <div class="form-group">
         <label for="nama" class="col-sm-2 col-md-2 control-label">Nama Taman :</label>
         <div class="col-sm-9 col-md-9">
-            <input ng-model="nama_park" type="text" class="form-control" id="nama-taman" required value="{{ $park->nama_park }}">
+            <input type="hidden" ng-model='idpark'>
+            <input ng-model="nama_park" type="text" class="form-control" id="nama-taman" required>
         </div>
     </div>
     <div class="form-group">
         <label for="alamat" class="col-sm-2 col-md-2 control-label">Alamat :</label>
         <div class="col-sm-9 col-md-9">
-            <textarea ng-model="alamat" class="form-control" rows="3" id="alamat-taman" required>{{ $park->alamat }}</textarea>
+            <textarea ng-model="alamat" class="form-control" rows="3" id="alamat-taman" required></textarea>
         </div>
     </div>
     <div class="form-group">
-        <label for="koordinat" class="col-sm-2 col-md-2 control-label">Koordinat map:</label>
+        <label for="latitude" class="col-sm-2 col-md-2 control-label">Latitude:</label>
         <div class="col-sm-9 col-md-9">
-            <input ng-model="koordinat" type="text" class="form-control" id="koordinat-taman" required value="{{ $park->longitude }}">
+            <input ng-model="latitude" type="text" class="form-control" id="latitude" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="longitude" class="col-sm-2 col-md-2 control-label">Longitude:</label>
+        <div class="col-sm-9 col-md-9">
+            <input ng-model="longitude" type="text" class="form-control" id="longitude" required>
         </div>
     </div>
     <div class="form-group">
         <label for="deskripsi" class="col-sm-2 col-md-2 control-label">Deskripsi :</label>
         <div class="col-sm-9 col-md-9">
-            <textarea ng-model="deskripsi" class="form-control" rows="4" id="deskripsi-taman" required>{{ $park->deskripsi }}</textarea>
+            <textarea ng-model="deskripsi" class="form-control" rows="4" id="deskripsi-taman" required></textarea>
         </div>
     </div>
     <div class="form-group">

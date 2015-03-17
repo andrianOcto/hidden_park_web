@@ -91,47 +91,5 @@ class ApiController extends BaseController {
 	public function missingMethod($parameters = array()) {
         echo "API not found. \n";
     }
-
-    // post user's data
-    public function postUserData(){
-    	$admin 				= new Admin;
-
-    	$input 				= Input::all();
-    	$nama				= (isset($input['nama'])) 		? $input['nama']:null;
-    	$username			= (isset($input['username'])) 	? $input['username']:null;
-		$password			= (isset($input['password'])) 	? $input['password']:null;
-		$email				= (isset($input['email'])) 		? $input['email']:null;
-		$contact			= (isset($input['contact'])) 	? $input['contact']:null;
-		$bio				= (isset($input['bio'])) 		? $input['bio']:null;
-
-		
-		$admin->nama_lengkap	= $nama;
-		$admin->username	 	= $username;
-		$admin->password	 	= $password;
-		$admin->email	 		= $email;
-		$admin->bio	 			= $bio;
-		$admin->contact 		= $contact;
-
-		$admin->save();
-    }
-
-    // post park's data
-    public function postParkData()
-    {
-    	$park 				= new Park;
-
-    	$input 				= Input::all();
-    	$nama				= (isset($input['nama_park'])) 	? $input['nama_park']:null;
-    	$alamat				= (isset($input['alamat'])) 	? $input['alamat']:null;
-    	$longitude			= (isset($input['longitude'])) 	? $input['longitude']:null;
-    	$deskripsi			= (isset($input['deskripsi'])) 	? $input['deskripsi']:null;
-
-    	$park->nama_park	= $nama;
-    	$park->alamat		= $alamat;
-    	$park->longitude	= $longitude;
-    	$park->deskripsi	= $deskripsi;
-
-    	$park->save();
-    }
 }
 

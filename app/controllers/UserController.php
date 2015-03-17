@@ -19,7 +19,6 @@ class UserController extends BaseController {
 	{
 		$admin = Admin::all();
 		return View::make('user/home')->with('admin', $admin);
-
 	}
 
 	public function create()
@@ -47,6 +46,50 @@ class UserController extends BaseController {
 
 		return Redirect::to('user');
 	}
+
+	public function store(){
+    	$admin 					= new Admin;
+
+    	$input	 				= Input::all();
+    	$nama					= (isset($input['nama'])) 		? $input['nama']:null;
+    	$username				= (isset($input['username'])) 	? $input['username']:null;
+		$password				= (isset($input['password'])) 	? $input['password']:null;
+		$email					= (isset($input['email'])) 		? $input['email']:null;
+		$contact				= (isset($input['contact'])) 	? $input['contact']:null;
+		$bio					= (isset($input['bio'])) 		? $input['bio']:null;
+
+		$admin->nama_lengkap	= $nama;
+		$admin->username	 	= $username;
+		$admin->password	 	= $password;
+		$admin->email	 		= $email;
+		$admin->bio	 			= $bio;
+		$admin->contact 		= $contact;
+
+		$admin->save();
+    }
+
+    public function update($iduser)
+    {
+    	$input	 				= Input::all();
+    	$iduser 				= (isset($input['iduser'])) 	? $input['iduser']:null;
+    	$nama					= (isset($input['nama'])) 		? $input['nama']:null;
+    	$username				= (isset($input['username'])) 	? $input['username']:null;
+		$password				= (isset($input['password'])) 	? $input['password']:null;
+		$email					= (isset($input['email'])) 		? $input['email']:null;
+		$contact				= (isset($input['contact'])) 	? $input['contact']:null;
+		$bio					= (isset($input['bio'])) 		? $input['bio']:null;
+
+		$admin 					= Admin::find($iduser);
+
+		$admin->nama_lengkap	= $nama;
+		$admin->username	 	= $username;
+		$admin->password	 	= $password;
+		$admin->email	 		= $email;
+		$admin->bio	 			= $bio;
+		$admin->contact 		= $contact;
+
+		$admin->save();	
+    }
 
 	public function doLogin()
 	{

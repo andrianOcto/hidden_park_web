@@ -38,6 +38,47 @@ class ParkController extends BaseController {
 		return View::make('park/view-park')->with('park', $park);
 	}
 
+	public function store()
+    {
+    	$park 				= new Park;
+
+    	$input 				= Input::all();
+    	$nama				= (isset($input['nama_park'])) 	? $input['nama_park']:null;
+    	$alamat				= (isset($input['alamat'])) 	? $input['alamat']:null;
+    	$longitude			= (isset($input['longitude'])) 	? $input['longitude']:null;
+    	$latitude			= (isset($input['latitude'])) 	? $input['latitude']:null;
+    	$deskripsi			= (isset($input['deskripsi'])) 	? $input['deskripsi']:null;
+
+    	$park->nama_park	= $nama;
+    	$park->alamat		= $alamat;
+    	$park->longitude	= $longitude;
+    	$park->latitude		= $latitude;
+    	$park->deskripsi	= $deskripsi;
+
+    	$park->save();
+    }
+
+    public function update($idpark)
+    {
+    	$input 				= Input::all();
+    	$idpark				= (isset($input['idpark'])) 	? $input['idpark']:null;
+    	$nama_park			= (isset($input['nama_park'])) 	? $input['nama_park']:null;
+    	$alamat				= (isset($input['alamat'])) 	? $input['alamat']:null;
+    	$longitude			= (isset($input['longitude'])) 	? $input['longitude']:null;
+    	$latitude			= (isset($input['latitude'])) 	? $input['latitude']:null;
+    	$deskripsi			= (isset($input['deskripsi'])) 	? $input['deskripsi']:null;
+
+    	$park 				= Park::find($idpark);
+
+    	$park->nama_park	= $nama_park;
+    	$park->alamat		= $alamat;
+    	$park->longitude	= $longitude;
+    	$park->latitude		= $latitude;
+    	$park->deskripsi	= $deskripsi;
+
+    	$park->save();
+    }
+
 	public function destroy($id)
 	{
 		$park = Park::find($id);
