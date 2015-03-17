@@ -1,56 +1,60 @@
 @include("template/head")
 <div class="row">
     <div class="col-sm-9 col-md-9">
-        <center ng-app="fileUpload" ng-controller="MyCtrl">
+        <!-- <center ng-app="fileUpload" ng-controller="MyCtrl">
             <div ng-if="imageShow">
             <img  class="thumb">
             </div>
             <img src="{{ URL::asset('images/sample.png') }}" class="img-thumbnail" style="height:200px"><br><br>
             <button type="button" class="btn btn-primary" ng-file-select ng-file-change="upload($files)"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
-        &nbsp;
-        <form class="form-horizontal" role="form">
+ -->        &nbsp;
+        <form ng-app="form_input" ng-controller="submitController" ng-submit="submitData()" class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="nama-user" class="col-sm-3 col-md-3 control-label">Nama Lengkap :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input type="text" required class="form-control" id="nama">
+                    <input ng-model="nama" type="text" required class="form-control" id="nama" name="nama" value="{{ $admin->nama_lengkap }}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="username" class="col-sm-3 col-md-3 control-label">Username :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input type="text" required class="form-control" id="username">
+                    <input ng-model="username" type="text" required class="form-control" id="username" value="{{ $admin->username }}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-3 col-md-3 control-label">Password :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input type="password" required class="form-control" id="password">
+                    <input ng-model="password" type="password" required class="form-control" id="password" value="{{ $admin->password }}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-3 col-md-3 control-label">Email :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input type="email" required class="form-control" id="email">
+                    <input ng-model="email" type="email" required class="form-control" id="email" value="{{ $admin->email }}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="kontak" class="col-sm-3 col-md-3 control-label">Contact :</label>
                 <div class="col-sm-9 col-md-9">
-                    <input type="text" required class="form-control" id="kontak">
+                    <input ng-model="contact" type="text" required class="form-control" id="kontak" value="{{ $admin->contact }}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="bio" class="col-sm-3 col-md-3 control-label">Bio :</label>
                 <div class="col-sm-9 col-md-9">
-                    <textarea rows="4" id="bio" class="form-control"></textarea>
+                    <textarea ng-model="bio" rows="4" id="bio" class="form-control">{{ $admin->bio }}</textarea>
                 </div>
             </div>
             &nbsp;
             <div class="form-group">
                 
                 <div class="col-sm-2 col-md-2 col-md-offset-3">
-                    <button type="button" class="btn btn-primary">submit</button>
+                    <button ng-hide="loading" type="submit" class="btn btn-primary">login</button>
+                        <img ng-hide="!loading" height="72" width="72" src="{{ URL::asset('images/loading.gif') }}" class="img-circle">
+                        <br><br>
+                        <!-- <a href="#">forgot password</a> -->
+                        <p ng-hide="!isError" class="text-danger"  ng-init="message='sssss'">@{{message}}</p>
                 </div>
             </div>
         </form>

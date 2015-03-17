@@ -5,7 +5,7 @@
     </ol>
 </legend>
 &nbsp;
-<a href="user/edit"><button class="btn btn-primary">Add user +</button></a>
+<a href="user/create"><button class="btn btn-primary">Add user +</button></a>
 <br><br>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -16,28 +16,19 @@
             <th>email</th>
             <th></th>
         </tr>
+        @foreach($admin as $key => $value)
         <tr>
-            <td>1</td>
-            <td>Deny Salvana</td>
+            <td>{{ $value->iduser }}</td>
+            <td>{{ $value->nama_lengkap }}</td>
             <td><img class="img-rounded" style="width:100px" src="images/sample.png"></td>
-            <td>deny.nullpointer@gmail.com</td>
+            <td>{{ $value->email}}</td>
             <td class="text-center">
-                <a href="user/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="user/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
-                <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
+                <a href="user/{{ $value->iduser }}"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
+                <a href="user/{{ $value->iduser }}/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
+                <a href="user/{{ $value->iduser }}/destroy"><button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-pencil"></span> delete</button></a>
             </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Andrian Octo</td>
-            <td><img class="img-rounded" style="width:100px" src="images/sample.png"></td>
-            <td>andrian.nullpointer@gmail.com</td>
-            <td class="text-center">
-                <a href="user/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="user/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
-                <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
-            </td>
-        </tr>
+        @endforeach
     </table>
 </div>
 

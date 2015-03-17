@@ -12,6 +12,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/lib/angular.min.js"></script>
+    <script src="js/page/data_post.js"></script>
 
   </head>
 

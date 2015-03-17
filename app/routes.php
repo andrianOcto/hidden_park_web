@@ -12,6 +12,12 @@
 */
 Route::controller('api','ApiController');
 Route::post('/', array('uses' => 'UserController@doLogin'));
+
+// submit user's data route
+Route::post('/submit', array('uses' => 'ApiController@postUserData'));
+// submit park's data route
+Route::post('/submitPark', array('uses' => 'ApiController@postParkData'));
+
 Route::post('setSession', array('uses' => 'AuthController@postSetsession'));
 Route::post('user/upload', array('uses' => 'UserController@upload'));
 Route::group(array('before' => 'guest'), function() {
@@ -20,6 +26,7 @@ Route::group(array('before' => 'guest'), function() {
 		return View::make('login');
 	});
 });
+Route::get('/submit','ApiController@postUserData');
 
 Route::group(array('before' => 'auth'), function() {
 
@@ -28,38 +35,21 @@ Route::group(array('before' => 'auth'), function() {
 	{
 		return View::make('home');
 	});
-	Route::get('/user', function()
-	{
-		return View::make('user/home');
-	});
-	Route::get('/park', function()
-	{
-		return View::make('park/home/test');
-	});
-
-	//user route
-	Route::get('/user/view', function()
-	{
-		return View::make('user/view-user');
-	});
-	
-	Route::get('/user/edit', function()
-	{
-		return View::make('user/edit-user');
-	});
-
-	//route park
-	Route::get('/park/view', function()
-	{
-		return View::make('park/view-park');
-	});
-	
-	Route::get('/park/edit', function()
-	{
-		return View::make('park/add-park');
-	});
 
 	Route::get('logout', 'AuthController@doLogout');
+
+	// resource route user
+	Route::resource('user','UserController');
+
+	// resource route park
+	Route::resource('park', 'ParkController');
+
+	// user delete route
+	Route::get('user/{id}/destroy',['as'=>'user.delete','uses'=>'UserController@destroy']);
+	// park delete route
+	Route::get('park/{id}/destroy',['as'=>'park.delete','uses'=>'ParkController@destroy']);
 });
+
+
 
 

@@ -5,7 +5,7 @@
     </ol>
 </legend>
 &nbsp;
-<a href="park/edit"><button class="btn btn-success">Add park +</button></a>
+<a href="park/create"><button class="btn btn-success">Add park +</button></a>
 <br><br>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -16,28 +16,19 @@
             <th>Alamat</th>
             <th></th>
         </tr>
+        @foreach($park as $key => $value)
         <tr>
-            <td>1</td>
-            <td>Tugu muda</td>
+            <td>{{ $value->idpark }}</td>
+            <td>{{ $value->nama_park }}</td>
             <td><img class="img-rounded" style="width:150px" src="images/sample.png"></td>
-            <td>Pasuruhan Lor 294</td>
+            <td>{{ $value->alamat }}</td>
             <td class="text-center">
-                <a href="park/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="park/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
-                <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
+                <a href="park/{{ $value->idpark }}"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
+                <a href="park/{{ $value->idpark }}/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
+                <a href="park/{{ $value->idpark }}/destroy"><button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-pencil"></span> delete</button></a>
             </td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Tugu muda</td>
-            <td><img class="img-rounded" style="width:150px" src="images/sample.png"></td>
-            <td>Pasuruhan Lor 294</td>
-            <td class="text-center">
-                <a href="park/view"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>
-                <a href="park/edit"><button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span> edit</button></a>
-                <button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> delete</button>
-            </td>
-        </tr>
+        @endforeach
     </table>
 </div>
 @include("template/foot")

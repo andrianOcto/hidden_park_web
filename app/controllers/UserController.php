@@ -15,6 +15,39 @@ class UserController extends BaseController {
 	|
 	*/
 
+	public function index()
+	{
+		$admin = Admin::all();
+		return View::make('user/home')->with('admin', $admin);
+
+	}
+
+	public function create()
+	{
+		return View::make('user/create-user');
+	}
+
+	public function edit($id){
+		$admin = Admin::find($id);
+
+		return View::make('user/edit-user')->with('admin', $admin);
+	}
+
+	public function show($id)
+	{
+		$admin = Admin::find($id);
+
+		return View::make('user/view-user')->with('admin', $admin);
+	}
+
+	public function destroy($id)
+	{
+		$admin = Admin::find($id);
+		$admin->delete();
+
+		return Redirect::to('user');
+	}
+
 	public function doLogin()
 	{
 		return Redirect::to('home');
@@ -32,4 +65,6 @@ class UserController extends BaseController {
                 
                 $foto->move($destinationPath, $filename);
 	}
+
+
 }

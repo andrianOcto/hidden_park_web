@@ -5,15 +5,15 @@
         <li style="color:black">view park</li>
     </ol>
 </legend>
-<h3>Taman SMP 5</h3>
+<h3>{{ $park->nama_park }}</h3>
 &nbsp;<br>
-<img class="img-thumbnail" src="images/sample.png" style="height:250px">
-<img class="img-thumbnail" src="images/logo-hiddenpark.png" style="height:250px">
-<img class="img-thumbnail" src="images/sample.png" style="height:250px">
+<img class="img-thumbnail" src="../images/sample.png" style="height:250px">
+<img class="img-thumbnail" src="../images/logo-hiddenpark.png" style="height:250px">
+<img class="img-thumbnail" src="../images/sample.png" style="height:250px">
 &nbsp;<br><br>
-<p>Jalan Sunan Muria 58 Kudus</p>
-<p>34 LU: 37 LS: 33 BB: 56 BT  <button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span> view on map</button></p>
-<p>Taman yang penuh dengan kenangan dimasa-masa gue SMP :)</p>
+<p>{{ $park->alamat }}</p>
+<p>{{ $park->longitude }}  <button type="button" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span> view on map</button></p>
+<p>{{ $park->deskripsi }}</p>
 <br><br>
 <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> edit</button>
 @include("template/foot")
