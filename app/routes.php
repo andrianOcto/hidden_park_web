@@ -14,6 +14,9 @@ Route::controller('api','ApiController');
 Route::post('/', array('uses' => 'UserController@doLogin'));
 Route::post('setSession', array('uses' => 'AuthController@postSetsession'));
 Route::post('user/upload', array('uses' => 'UserController@upload'));
+Route::post('park/upload', array('uses' => 'ParkController@upload'));
+Route::post('user/{iduser}/updateImage', array('uses' => 'UserController@updateImage'));
+Route::post('park/{iduser}/updateImage', array('uses' => 'ParkController@upload'));
 Route::group(array('before' => 'guest'), function() {
 	Route::get('/', function()
 	{

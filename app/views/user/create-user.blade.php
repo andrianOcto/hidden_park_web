@@ -9,7 +9,17 @@
             <button type="button" class="btn btn-primary" ng-file-select ng-file-change="upload($files)"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
  -->        &nbsp;
-        <form ng-app="form_input" ng-controller="submitController" ng-submit="submitData()" class="form-horizontal" role="form">
+        <form ng-app="form_input" ng-controller="submitController" uploader="uploader" ng-submit="uploader.uploadAll()"  filters="queueLimit, customFilter" class="form-horizontal" role="form">
+
+        <div ng-repeat="item in uploader.queue">
+        <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 150 }"></div></div>
+        <input type="file" nv-file-select="" uploader="uploader" required/>
+        <div class="progress" style="">
+            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+        </div>
+
+        <!-- halaman form -->
+
             <div class="form-group">
                 <label for="nama-user" class="col-sm-3 col-md-3 control-label">Nama Lengkap :</label>
                 <div class="col-sm-9 col-md-9">

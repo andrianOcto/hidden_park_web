@@ -28,7 +28,7 @@ class UserController extends BaseController {
 
 	public function edit($id){
 		$admin = Admin::find($id);
-
+		Session::put('pathImage', $admin->foto);
 		return View::make('user/edit-user')->with('admin', $admin);
 	}
 
@@ -42,6 +42,8 @@ class UserController extends BaseController {
 	public function destroy($id)
 	{
 		$admin = Admin::find($id);
+		$destinationPath  = public_path().'/files/photos/user';
+		File::delete($destinationPath."/".$admin->foto);
 		$admin->delete();
 
 		return Redirect::to('user');
@@ -58,12 +60,14 @@ class UserController extends BaseController {
 		$contact				= (isset($input['contact'])) 	? $input['contact']:null;
 		$bio					= (isset($input['bio'])) 		? $input['bio']:null;
 
+
 		$admin->nama_lengkap	= $nama;
 		$admin->username	 	= $username;
 		$admin->password	 	= $password;
 		$admin->email	 		= $email;
 		$admin->bio	 			= $bio;
 		$admin->contact 		= $contact;
+		$admin->foto 			= Session::get('pathImage');
 
 		$admin->save();
     }
@@ -87,6 +91,7 @@ class UserController extends BaseController {
 		$admin->email	 		= $email;
 		$admin->bio	 			= $bio;
 		$admin->contact 		= $contact;
+		$admin->foto 			= Session::get('pathImage');
 
 		$admin->save();	
     }
@@ -99,15 +104,38 @@ class UserController extends BaseController {
 	public function upload()
 	{
 
-		$input            = Input::all();
-		$username		  = (isset($input['username']))         ? $input['username']                :null;
+		//Save image to server
 		$foto             = Input::file('file') ;    
-		$destinationPath  = public_path().'/files/photos';
-                $extension        = $foto->getClientOriginalExtension();
-                $filename         = time()."_".str_random(12).".".$extension;
-                
-                $foto->move($destinationPath, $filename);
+		$destinationPath  = public_path().'/files/photos/user';
+        $extension        = $foto->getClientOriginalExtension();
+        $filename         = time()."_".str_random(12).".".$extension;
+        Session::put('pathImage', $filename);
+        $foto->move($destinationPath, $filename);
+
+        //create thumbnail
+        $img = Image::make($destinationPath."/".$filename)->resize(300, 200)->save($destinationPath."/thumb/".$filename);
+
 	}
 
+	public function updateImage()
+	{
+		$name 			  = Session::get('pathImage');
+		$destinationPath  = public_path().'/files/photos/user';
+		File::delete($destinationPath."/".$name);
+		File::delete($destinationPath."/thumb/".$name);
+		
+		//Save image to server
+		$foto             = Input::file('file') ;    
+		
+        $extension        = $foto->getClientOriginalExtension();
+        $filename         = time()."_".str_random(12).".".$extension;
+        Session::put('pathImage', $filename);
+        $foto->move($destinationPath, $filename);
+
+        //create thumbnail
+        $img = Image::make($destinationPath."/".$filename)->resize(300, 200)->save($destinationPath."/thumb/".$filename);
+
+	}
+	
 
 }

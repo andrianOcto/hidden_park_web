@@ -20,7 +20,7 @@
         <tr>
             <td>{{ $value->iduser }}</td>
             <td>{{ $value->nama_lengkap }}</td>
-            <td><img class="img-rounded" style="width:100px" src="images/sample.png"></td>
+            <td><img class="img-rounded" style="width:100px" src="{{ URL::asset('files/photos/user') }}/{{ $value->foto }}"></td>
             <td>{{ $value->email}}</td>
             <td class="text-center">
                 <a href="user/{{ $value->iduser }}"><button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> view</button></a>

@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-md-4">
-        <p class="text-right"><img class="img-thumbnail" style="height:300px" src="{{ URL::asset('images/sample.png') }}"></p>
+        <p class="text-right"><img class="img-thumbnail" style="height:300px" src="{{ URL::asset('files/photos/user') }}/{{ $admin->foto }}"></p>
     </div>
     <style>
         .tab{
