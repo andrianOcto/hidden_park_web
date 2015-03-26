@@ -12,7 +12,6 @@
 */
 Route::get('api/image/{name}', array('uses' => 'ApiController@getImage'));
 Route::get('api/imageAll/{idpark}', array('uses' => 'ApiController@getThumbImage'));
-Route::get('api/park/{idpark}', array('uses' => 'ApiController@getPark'));
 Route::controller('api','ApiController');
 Route::post('/', array('uses' => 'UserController@doLogin'));
 Route::post('setSession', array('uses' => 'AuthController@postSetsession'));

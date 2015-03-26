@@ -99,7 +99,7 @@ class ApiController extends BaseController {
 		return Response::json($returnData, $statusCode)->header('access-control-allow-origin', '*');
 	}
 
-	public function getPark($idpark=-99)
+	public function getPark()
 	{
 		$returnData       = array();
         $response         = "OK";
@@ -112,34 +112,16 @@ class ApiController extends BaseController {
         if(!$isError){
             try {
             	$arrayImage		= array();
-            	if($idpark==-99)
-            	{
-                	$result['park'] = Park::all();
-	                $i=0;
-	                foreach (Park::all() as $park)
-					{ 
-						$foto = Photo::where('idpark', '=', $park->idpark)->take(1)->get();
+                $result['park'] = Park::all();
 
-						foreach ($foto as $key => $value) {
-							$arrayImage[$i]=$value->fileName;
-						}
-						$i++;
+                foreach (Park::all() as $park)
+				{
+					$foto = Photo::where('idpark', '=', $park->idpark)->take(1)->get();
+					foreach ($foto as $key => $value) {
+						$arrayImage=$value->fileName;
+						
 					}
-
-                }
-                else
-                {
-					$result['park'] = Park::find($idpark);                	
-					$i=0;
-	                foreach ($result['park'] as $park)
-					{
-						$foto = Photo::where('idpark', '=', $idpark)->take(1)->get();
-						foreach ($foto as $key => $value) {
-							$arrayImage[$i]=$value->fileName;
-						}
-						$i++;
-					}
-                }
+				}
 				$result['image'] = $arrayImage;                
             } catch (Exception $e) {
                 $response = "FAILED";
@@ -157,8 +139,6 @@ class ApiController extends BaseController {
 
         return Response::json($returnData, $statusCode)->header('access-control-allow-origin', '*');
 	}
-
-
 
 	public function getThumbImage($idpark)
 	{
