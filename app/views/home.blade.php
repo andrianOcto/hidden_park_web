@@ -11,8 +11,14 @@
     <title>Hidden Park Administrator</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery.ad-gallery.css" rel="stylesheet">
     <script src="js/lib/angular.min.js"></script>
     <script src="js/page/data_post.js"></script>
+    <style>
+      #gallery {
+        padding: 10px;
+      }
+    </style>
 
   </head>
 
@@ -97,6 +103,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/Chart.js"></script>
+    <script src="js/jquery.ad-gallery.js"></script>
     
     <script>
 		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
@@ -133,8 +140,34 @@
 			responsive: true
 		});
 	}
-
-
 	</script>
+    
+    <script type="text/javascript">
+      $(function() {
+        var galleries = $('.ad-gallery').adGallery();
+        $('#switch-effect').change(
+          function() {
+            galleries[0].settings.effect = $(this).val();
+            return false;
+          }
+        );
+        $('#toggle-slideshow').click(
+          function() {
+            galleries[0].slideshow.toggle();
+            return false;
+          }
+        );
+        $('#toggle-description').click(
+          function() {
+            if(!galleries[0].settings.description_wrapper) {
+              galleries[0].settings.description_wrapper = $('#descriptions');
+            } else {
+              galleries[0].settings.description_wrapper = false;
+            }
+            return false;
+          }
+        );
+      });
+    </script>
   </body>
 </html>
