@@ -11,6 +11,12 @@
     <title>Hidden Park Administrator</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery.ad-gallery.css" rel="stylesheet">
+    <style>
+      #gallery {
+        padding: 10px;
+      }
+    </style>
     <script src="js/lib/angular.min.js"></script>
     <script src="js/page/data_post.js"></script>
 
@@ -96,6 +102,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.ad-gallery.js"></script>
     <script src="js/Chart.js"></script>
     
     <script>
