@@ -131,12 +131,10 @@ class ApiController extends BaseController {
                 {
 					$result['park'] = Park::find($idpark);                	
 					$i=0;
-	                foreach ($result['park'] as $park)
-					{
-						$foto = Photo::where('idpark', '=', $idpark)->take(1)->get();
-						foreach ($foto as $key => $value) {
-							$arrayImage[$i]=$value->fileName;
-						}
+
+					$foto = Photo::where('idpark', '=', $idpark)->get();
+					foreach ($foto as $key => $value) {
+						$arrayImage[$i]=$value->fileName;
 						$i++;
 					}
                 }
