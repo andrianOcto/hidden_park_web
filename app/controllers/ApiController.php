@@ -70,6 +70,9 @@ class ApiController extends BaseController {
 					$response 	= "OK";
 					$statusCode = 200;
 					$message 	= "Login success.";
+					Session::put('username',$user->username);
+					Session::put('foto',$user->foto);
+					Session::put('iduser',$user->iduser);
 				}
 				//if password did not match
 				else

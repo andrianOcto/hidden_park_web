@@ -32,7 +32,13 @@ Route::group(array('before' => 'auth'), function() {
 	//menu utama
 	Route::get('/home', function()
 	{
-		return View::make('home');
+		$total_like 	= DB::table('tbl_park_liked')->count();
+		$total_visited 	= DB::table('tbl_park_visited')->count();
+		$parks 			= DB::table('park_liked_visited')->get();
+		return View::make('home')
+						->with('parks', $parks)
+						->with('total_like', $total_like)
+						->with('total_visited', $total_visited);
 	});
 
 	Route::get('logout', 'AuthController@doLogout');

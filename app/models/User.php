@@ -1,6 +1,6 @@
 <?php
     class User extends Eloquent {
-        protected $table        = 'admin';
+        protected $table        = 'user';
         protected $primaryKey   = 'username';
         
         public $timestamps      = false;

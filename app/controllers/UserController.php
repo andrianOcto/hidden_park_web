@@ -63,7 +63,7 @@ class UserController extends BaseController {
 
 		$admin->nama_lengkap	= $nama;
 		$admin->username	 	= $username;
-		$admin->password	 	= $password;
+		$admin->password	 	= Hash::make($password);
 		$admin->email	 		= $email;
 		$admin->bio	 			= $bio;
 		$admin->contact 		= $contact;
@@ -87,7 +87,7 @@ class UserController extends BaseController {
 
 		$admin->nama_lengkap	= $nama;
 		$admin->username	 	= $username;
-		$admin->password	 	= $password;
+		$admin->password	 	= Hash::make($password);
 		$admin->email	 		= $email;
 		$admin->bio	 			= $bio;
 		$admin->contact 		= $contact;

@@ -30,7 +30,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="images/sample.png"></li>
+            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="{{ URL::asset('files/photos/user') }}/{{ Session::get('foto') }}"></li>
+            <li>
+                <a href="user/{{ Session::get('iduser'); }}" style="color:black"> {{ Session::get('username'); }}
+                </a>
+            </li>
             <li><a href="/logout" style="color:black">logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -61,28 +65,16 @@
                     <table class="table table-bordered table-hover">
                         <tr>
                             <th>Park</th>
-                            <th class="success">Visited <span class="badge">14</span></th>
-                            <th class="info">Liked <span class="badge">9</span></th>
-                            <th class="danger">Disliked <span class="badge">5</span></th>
+                            <th class="success">Visited <span class="badge">{{ $total_visited }}</span></th>
+                            <th class="info">Liked <span class="badge">{{ $total_like }}</span></th>
                         </tr>
+                        @foreach($parks as $key => $value)
                         <tr>
-                            <td class="success"><b>Taman 1</b></td>
-                            <td>5</td>
-                            <th>4</th>
-                            <th>1</th>
+                            <td class="success"><b>{{ $value->nama_park }}</b></td>
+                            <td>{{ $value->numliked }}</td>
+                            <th>{{ $value->numvisited }}</th>
                         </tr>
-                        <tr>
-                            <td class="success"><b>Taman 2</b></td>
-                            <td>2</td>
-                            <th>2</th>
-                            <th>0</th>
-                        </tr>
-                        <tr>
-                            <td class="success"><b>Taman 3</b></td>
-                            <td>4</td>
-                            <th>3</th>
-                            <th>1</th>
-                        </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>

@@ -39,9 +39,12 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="{{ URL::asset('images/sample.png') }}"></li>
-            <li><a href="view-user.php" style="color:black">Valentino</a></li>
-            <li><a href="/logout" style="color:black">logout</a></li>
+            <li><img class="img-circle" style="width:40px; margin-top:5px; margin-left:15px" src="{{ URL::asset('files/photos/user') }}/{{ Session::get('foto') }}"></li>
+            <li>
+                <a href="view-user.php" style="color:black"> {{ Session::get('username'); }}
+                </a>
+            </li>
+            <li><a href="/logout" style="color:black">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
