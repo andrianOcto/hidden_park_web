@@ -40,9 +40,15 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h5>are you sure want to delete this user?</h5>
       </div>
+       <?php if(isset($value)) 
+      {
+        ?>
       <div class="modal-footer">
         <a href="user/{{ $value->iduser }}/destroy"><button type="button" class="btn btn-danger btn-sm">delete</button></a>
       </div>
+       <?php 
+        }
+      ?>
     </div>
   </div>
 </div>
