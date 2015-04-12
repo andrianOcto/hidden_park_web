@@ -58,7 +58,7 @@
                     <footer>Deny Salvana E</footer>
                 </blockquote>
                 &nbsp;
-                <a href="edit-quote.php"><button type="button" class="btn btn-primary" style="margin-left:20px">edit quote</button></a>
+                <a href="/quote"><button type="button" class="btn btn-primary" style="margin-left:20px">edit quote</button></a>
                 &nbsp;
                 <center><div style="width:50%; margin-top:30px"><canvas id="canvas" height="300" width="800"></canvas></div></center>
                 <div class="table-responsive" style="margin-right:30px; margin-top:30px">

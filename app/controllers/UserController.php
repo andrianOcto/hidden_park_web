@@ -92,6 +92,7 @@ class UserController extends BaseController {
 		$admin->bio	 			= $bio;
 		$admin->contact 		= $contact;
 		$admin->foto 			= Session::get('pathImage');
+		Session::put('foto',$admin->foto);
 
 		$admin->save();	
     }

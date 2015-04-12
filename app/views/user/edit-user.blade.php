@@ -9,7 +9,7 @@
             <button type="button" class="btn btn-primary" ng-file-select ng-file-change="upload($files)"><span class="glyphicon glyphicon-picture"></span> edit photo</button>
         </center>
  -->        &nbsp;
-        <form ng-app="updateUser" ng-controller="updateUserController" ng-submit="update()" ng-init="iduser='{{ $admin->iduser }}';nama='{{ $admin->nama_lengkap }}';username='{{ $admin->username }}';password='{{ $admin->password }}';contact='{{ $admin->contact }}';bio='{{ $admin->bio }}';email='{{ $admin->email }}'" class="form-horizontal" uploader="uploader" filters="queueLimit, customFilter" role="form">
+        <form ng-app="updateUser" ng-controller="updateUserController" ng-submit="update()" ng-init="iduser='{{ $admin->iduser }}';nama='{{ $admin->nama_lengkap }}';username='{{ $admin->username }}';password='';contact='{{ $admin->contact }}';bio='{{ $admin->bio }}';email='{{ $admin->email }}'" class="form-horizontal" uploader="uploader" filters="queueLimit, customFilter" role="form">
             <img ng-show="showImage" style="height:150px" src="{{ URL::asset('files/photos/user') }}/{{ $admin->foto }}">
             <div ng-repeat="item in uploader.queue">
             <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 150 }"></div></div>

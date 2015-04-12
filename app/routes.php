@@ -20,6 +20,7 @@ Route::post('user/upload', array('uses' => 'UserController@upload'));
 Route::post('park/upload', array('uses' => 'ParkController@upload'));
 Route::post('user/{iduser}/updateImage', array('uses' => 'UserController@updateImage'));
 Route::post('park/{iduser}/updateImage', array('uses' => 'ParkController@upload'));
+
 Route::group(array('before' => 'guest'), function() {
 	Route::get('/', function()
 	{
@@ -40,7 +41,10 @@ Route::group(array('before' => 'auth'), function() {
 						->with('total_like', $total_like)
 						->with('total_visited', $total_visited);
 	});
-
+	Route::get('/quote', function()
+	{
+		return View::make('edit-quote');
+	});
 	Route::get('logout', 'AuthController@doLogout');
 
 	// resource route user
